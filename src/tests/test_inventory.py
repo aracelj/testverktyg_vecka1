@@ -1,12 +1,8 @@
 import pytest
 from inventory import Inventory
 
-class DummyDB:
-    def __init__(self):
-        self.data = {}
 
-
-# Fixture for db
+# Fixture
 @pytest.fixture
 def db():
     return {}
