@@ -1,28 +1,26 @@
 class Excursion:
     def __init__(self):
-        self.members = set()  # store member names
-        self.rented_items = {}  # {member_name: set of items rented}
+        # Internal storage
+        self.members = {}  # member_name -> list of rented items
 
     def get_members(self):
-        return list(self.members)
+        return list(self.members.keys())
 
     def add_member(self, name):
-        self.members.add(name)
-        if name not in self.rented_items:
-            self.rented_items[name] = set()
+        if name not in self.members:
+            self.members[name] = []
 
     def remove_member(self, name):
-        self.members.discard(name)
-        self.rented_items.pop(name, None)
+        if name in self.members:
+            del self.members[name]
 
     def register_item_rented(self, member_name, item_name):
         if member_name in self.members:
-            self.rented_items.setdefault(member_name, set()).add(item_name)
+            self.members[member_name].append(item_name)
 
     def register_item_returned(self, member_name, item_name):
-        if member_name in self.members:
-            self.rented_items.get(member_name, set()).discard(item_name)
+        if member_name in self.members and item_name in self.members[member_name]:
+            self.members[member_name].remove(item_name)
 
-    def get_list_not_returned_items(self):
-        # members with non-return rented item sets
-        return [member for member, items in self.rented_items.items() if items]
+    def get_all_who_has_not_returned_items(self):
+        return [member for member, items in self.members.items() if items]
