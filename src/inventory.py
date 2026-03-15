@@ -8,10 +8,11 @@ class Inventory:
     def get_quantity_left(self, name):
         return self.db.get(name, {}).get("quantity", 0)
 
-    def rent(self, item_name):
-        if self.db[item_name]["quantity"] > 0:
-            self.db[item_name]["quantity"] -= 1
+    def rent(self, name):
+        if self.db[name]["quantity"] > 0:
+            self.db[name]["quantity"] -= 1
         else:
             raise ValueError(f"Item {name} is not available to rent")
+
 
 
