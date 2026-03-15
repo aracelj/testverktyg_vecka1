@@ -1,3 +1,10 @@
+"""
+User Stories:
+  1. As a user, the user can search for the city and see the corresponding weather forecast of the day
+  2. As a user, the user can search by location coordinates and see the corresponding weather forecast of the day.
+  3. As a user, the user can input no. of days for the next weather forecast
+"""
+
 class WeatherService:
     def __init__(self):
         self.weather_data = {}  # “database”
