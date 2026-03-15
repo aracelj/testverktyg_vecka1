@@ -20,16 +20,16 @@ def test_excursion_rentals():
     excursion.register_item_rented("Joseph", "sleeping  mat")
 
     # Check members who have not returned items
-    not_returned = excursion.get_all_who_has_not_returned_items()
+    not_returned = excursion.get_list_not_returned_items()
     assert set(not_returned) == {"Maria", "Joseph"}
 
     # Return items
     excursion.register_item_returned("Maria", "camping stove")
     excursion.register_item_returned("Joseph", "kayak")
 
-    not_returned = excursion.get_all_who_has_not_returned_items()
+    not_returned = excursion.get_list_not_returned_items()
     assert set(not_returned) == {"Joseph"}  # Joseph still has sleeping  mat
 
     # Return remaining items
     excursion.register_item_returned("Joseph", "sleeping  mat")
-    assert excursion.get_all_who_has_not_returned_items() == []
+    assert excursion.get_list_not_returned_items() == []

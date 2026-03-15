@@ -23,6 +23,6 @@ class Excursion:
         if member_name in self.members:
             self.rented_items.get(member_name, set()).discard(item_name)
 
-    def get_all_who_has_not_returned_items(self):
+    def get_list_not_returned_items(self):
         # members with non-return rented item sets
         return [member for member, items in self.rented_items.items() if items]
