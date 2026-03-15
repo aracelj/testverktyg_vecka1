@@ -1,1 +1,6 @@
+.venv
+.idea
+misc.xml
+
+
 src/Diving*.jpg
