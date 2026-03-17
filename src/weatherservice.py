@@ -51,9 +51,11 @@ class WeatherService:
         return self.weather_data.get("Örebro")
 
     def get_nday_forecast(self, city_name, n_days):
-        forecast = self.forecast_data.get(city_name, [])
+        forecast = self.weather_data.get(city_name, [])
 
         if not forecast:
+            return []
+        if city_name not in self.weather_data:
             return []
 
         if n_days <= len(forecast):

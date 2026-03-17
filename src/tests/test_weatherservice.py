@@ -1,6 +1,6 @@
 
 import pytest
-
+from weatherservice import WeatherService
 
 
 # --- Fixtures ---
@@ -48,9 +48,5 @@ def test_variable_days_forecast(weather_service):
         assert "condition" in day
 
 def test_unknown_city_nday_forecast(weather_service):
-    # For this test, override the return for unknown city
-    weather_service.get_nday_forecast.return_value = []
-
     forecast = weather_service.get_nday_forecast("UnknownCity", 3)
     assert forecast == []
-    weather_service.get_nday_forecast.assert_called_once_with("UnknownCity", 3)
