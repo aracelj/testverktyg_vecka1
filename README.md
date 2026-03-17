@@ -1,6 +1,7 @@
 # Testverktyg VeckoUppgift1
 
 By Araceli Jakobsson
+
 Exercises:
   1. UML Diagram(diving*.jpg) - a diagram for classes, functions/method, parameters needed for a diving club.
   2. Creating a testing for the ff:
