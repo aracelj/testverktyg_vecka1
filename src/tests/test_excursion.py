@@ -55,3 +55,5 @@ def test_get_all_who_has_not_returned_items(excursion):
     not_returned = excursion.get_all_who_has_not_returned_items()
     assert set(not_returned) == {"Maja"}  # Maja still has sleeping mat
 
+
+
